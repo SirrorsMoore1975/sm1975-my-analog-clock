@@ -49,9 +49,11 @@ Try to write it in simple terms. If it become too long, you should contact to th
 
 Below are some example that might help you to figure out what you wanted to address:
 
-Did you encounter difficulties you would like to address?
-Something happened when you are working at the branch you would like to share?
-Improvement needed?
-Something is lacking in the project so the tasks become obsolete or impossible to complete?
-Your personal rights or freedom has been violated during work? (Seek help if you do and inform someone you can trust)
+- Did you encounter difficulties you would like to address?
+- Something happened when you are working at the branch you would like to share?
+- Improvement needed?
+- Something is lacking in the project so the tasks become obsolete or impossible to complete?
+- Your personal rights or freedom has been violated during work? (Seek help if you do and inform someone you can trust)
+
+>
 
