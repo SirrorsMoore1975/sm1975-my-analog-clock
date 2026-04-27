@@ -15,11 +15,11 @@ Issue(s) Number: #
 
 ## Tasks
 
-List completed tasks:
+### List completed tasks
 
 - `N/A` 
 
-### List the tasks that you did not completed here below
+### List incomplete tasks
 
 - `N/A`
 
@@ -54,13 +54,19 @@ Try to write it in simple terms. If it become too long, you should contact to th
 Below are some example that might help you to figure out what you wanted to address:
 
 - Did you encounter difficulties you would like to address?
+
 - Something happened when you are working at the branch you would like to share?
+
 - Improvement needed?
+
 - Something is lacking in the project so the tasks become obsolete or impossible to complete?
+
 - Your personal rights or freedom has been violated during work? (Seek help if you do and inform someone you can trust)
 
 > Nothing new to report.
+
 > We are an effective team.
+
 > Full-Stack Engineer, `$USER`, weapon clear - chamber empty, magazine removed, no rounds on my person.
 
 # End of Pull Request
