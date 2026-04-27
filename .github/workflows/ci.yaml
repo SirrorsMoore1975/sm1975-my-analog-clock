@@ -1,0 +1,24 @@
+name: ci_ci
+on: 
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-up-to-date-before-merge:
+    name: Check feature branch is up-to-date before merge 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v4 
+        with: 
+          fetch-depth: 0
+      - name: Verify feature branch is up-to-date with main 
+        run: |
+          if ! git merge-base --is-ancestor origin/main ${{ github.event.pull_request.head.sha }}; then
+            echo "This branch is not up to date with main."
+          exit 1
+          fi 
+
+
+
+  
