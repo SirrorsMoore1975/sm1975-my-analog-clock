@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import useMousePosition from "./utilities/MousePosition.js";
 
 function App() {
+  const { x, y } = useMousePosition();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="">Mouse Position Testing</header>
+
+      <div>
+        Mouse at: ({x}, {y})
+      </div>
     </div>
   );
 }
