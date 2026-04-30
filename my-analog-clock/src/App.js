@@ -1,6 +1,7 @@
 import "./App.css";
 import useMousePosition from "./utilities/MousePosition.js";
-import useWindowSize from "./utilities/WindowSize.js"
+import useWindowSize from "./utilities/WindowSize.js";
+import MessageLayer from "./components/MessageLayer.jsx";
 
 function App() {
   const { x, y } = useMousePosition();
@@ -11,8 +12,8 @@ function App() {
       <header className="">Mouse Position and Screen Size Testing</header>
 
       <div>
-        Mouse at: ({x}, {y})
-        Screen size: Width: {width}px, Height: {height}px 
+        Mouse at: ({x}, {y}) Screen size: Width: {width}px, Height: {height}px
+        <MessageLayer message="Hello, World!" />
       </div>
     </div>
   );
