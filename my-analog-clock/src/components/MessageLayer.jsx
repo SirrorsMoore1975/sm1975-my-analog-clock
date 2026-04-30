@@ -8,7 +8,23 @@ const MessageLayer = () => {
   const { x, y } = useMousePosition();
   const { width, height } = useWindowSize();
 
-  return <></>;
+  const messageStyle = {
+    position: "abosolute",
+    left: x,
+    top: y,
+    transform: "translate(-50%, -50%)",
+    pointerEvents: "none",
+    background: "rgba(0,0,0,0.75)",
+    color: "white",
+    padding: "6px 8px",
+    borderRadius: 4,
+    fontSize: 12,
+  };
+  return (
+    <>
+      <div style={messageStyle}>{message}</div>
+    </>
+  );
 };
 
 export default MessageLayer;
