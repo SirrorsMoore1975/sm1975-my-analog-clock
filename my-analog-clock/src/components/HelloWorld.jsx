@@ -20,7 +20,8 @@ const HelloWorld = () => {
           transform:translate(-50%,-50%),
           z-index: 10
         }}
-      >"Hello, World!"</div> 
+      >"Hello, World!"</div>
+      
     </>
   );
 };
