@@ -12,15 +12,28 @@ const HelloWorld = () => {
   
   return (
     <>
+      <div style={{ 
+        position: 'fixed', 
+        pointerEvents: 'none', 
+        zIndex: 9999, 
+        top:0,
+        left:0, 
+        /*width:`${width}vw`, 
+        height:`${height}vh`*/ 
+      }}>
+      
     <div className="hello_world_style" 
       style={{
           position:'absolute',
-          top: `${x}px`,
-          left:`${y}px`,
-          /*transform:'translate(-50%,-50%)', */ 
+          /* top: `${x}px`, 
+          left:`${y}px`, */ 
+          transform:`translate(${x}px,${y}px)`, 
           /*zIndex:'10', */ 
+          marginLeft: '20px',
+          marginTop: '10px'
         }}
       >Hello, World!</div> 
+      </div>
     </>
   );
 };
