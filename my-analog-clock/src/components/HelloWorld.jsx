@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import useMousePosition from "./utilities/MousePosition.js";
-import useWindowSize from "./utilities/WindowSize.js";
+import useMousePosition from "../utilities/MousePosition.js";
+import useWindowSize from "../utilities/WindowSize.js";
 
 /* For Debugging Purposes */
 
@@ -14,14 +14,14 @@ const HelloWorld = () => {
     <>
     <div className="hello_world_style" 
       style={{
-          position:"absolute",
-          top: {x}px,
-          left: {y}px,
-          transform:translate(-50%,-50%),
-          z-index: 10
+          position:'absolute',
+          top: `${x}px`,
+          left:`${y}px`,
+          /*transform:'translate(-50%,-50%)', */ 
+          /*zIndex:'10', */ 
         }}
-      >"Hello, World!"</div> 
+      >Hello, World!</div> 
     </>
   );
 };
-
+export default HelloWorld;
