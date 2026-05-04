@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
 
@@ -7,32 +7,42 @@ import useWindowSize from "../utilities/WindowSize.js";
 const HelloWorld = () => {
   const [helloworld, sethelloworld] = useState("");
   // const [pos, setPos]=useState({x:null.y:null});
-  const {x, y} = useMousePosition();
-  const {width, height} = useWindowSize(); 
-  
+  const { x, y } = useMousePosition();
+  const { width, height } = useWindowSize();
+
   return (
     <>
-      <div style={{ 
-        position: 'fixed', 
-        pointerEvents: 'none', 
-        zIndex: 9999, 
-        top:0,
-        left:0, 
-        /*width:`${width}vw`, 
-        height:`${height}vh`*/ 
-      }}>
-      
-    <div className="hello_world_style" 
-      style={{
-          position:'absolute',
-          /* top: `${x}px`, 
-          left:`${y}px`, */ 
-          transform:`translate(${x}px,${y}px)`, 
-          /*zIndex:'10', */ 
-          marginLeft: '20px',
-          marginTop: '10px'
+      <div
+        style={{
+          position: "fixed",
+          pointerEvents: "none",
+          zIndex: 9999,
+          top: 0,
+          left: 0,
+          /*width:`${width}vw`, 
+        height:`${height}vh`*/
         }}
-      >Hello, World!</div> 
+      >
+        <div
+          className="hello_world_style"
+          style={{
+            position: "absolute",
+            /* top: `${x}px`, 
+          left:`${y}px`, */
+            transform: `translate(${x}px,${y}px)`,
+            /*zIndex:'10', */
+            marginLeft: "20px",
+            marginTop: "10px",
+          }}
+        >
+          Hello, World!
+          <span>
+            Mouse at ({x}, {y})
+          </span>
+          <span>
+            Screen Size: ({width}, {height})
+          </span>
+        </div>
       </div>
     </>
   );
