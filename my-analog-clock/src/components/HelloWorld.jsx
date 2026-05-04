@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
 
@@ -6,9 +6,15 @@ import useWindowSize from "../utilities/WindowSize.js";
 
 const HelloWorld = () => {
   const [helloworld, sethelloworld] = useState("");
-  // const [pos, setPos]=useState({x:null.y:null});
   const { x, y } = useMousePosition();
   const { width, height } = useWindowSize();
+  const [offset, setOffset] = useState({_x:10, _y:20 });
+
+  useEffect(()=>{
+    setOffset(()=>{
+      
+    })
+  },[width, height])
 
   return (
     <>
