@@ -40,8 +40,6 @@ const HelloWorld = () => {
           style={{
             position: "absolute",
             transform: `translate(${offset.x}px,${offset.y}px)`,
-            marginLeft: "20px",
-            marginTop: "10px",
             pointerEvents: "none",
           }}
         >
