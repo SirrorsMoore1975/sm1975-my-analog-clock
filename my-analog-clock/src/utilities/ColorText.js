@@ -9,7 +9,7 @@ const ColorText = ({ message, colorScheme, colorBreakPoint }) => {
   <>
     <span>
         {message.split('').map((char, idx) => {
-          if (i % colorSpan === 0){
+          if (idx % colorSpan === 0){
             currentColor = (currentColor + 1) % colorKeys.length;
           }
           return (

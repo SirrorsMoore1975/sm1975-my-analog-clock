@@ -12,6 +12,7 @@ const HelloWorld = () => {
   const helloworldRef = useRef(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const colorScheme = {
+    'red': 'rgb(255,0,0)',
     'pink': 'rgb(255,180,172)',
     'green': 'rgb(102,145,134)',
     'blue': 'rgb(38,78,112)'
