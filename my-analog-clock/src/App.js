@@ -1,16 +1,13 @@
 import "./App.css";
-import useMousePosition from "./utilities/MousePosition.js";
+
+import HelloWorld from "./components/HelloWorld.jsx";
 
 function App() {
-  const { x, y } = useMousePosition();
+  const DebugMode = true;
 
   return (
     <div className="App">
-      <header className="">Mouse Position Testing</header>
-
-      <div>
-        Mouse at: ({x}, {y})
-      </div>
+      <div>{DebugMode ? <HelloWorld /> : ""}</div>
     </div>
   );
 }
