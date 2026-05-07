@@ -9,18 +9,13 @@ const defaultColorScheme = {
 };
 
 const ColorText = ({ message, colorScheme = defaultColorScheme }) => {
-  //const [ colors, setColors ] = useState({});
-  //const [colorIdx, setColorIdx] = useState(0);
-  const colorKeys = Object.keys(colorScheme);
+  //const colorKeys = Object.keys(colorScheme);
   const colorLength = Object.entries(colorScheme).length;
   const colorValues = Object.values(colorScheme);
   const [offset, setOffset] = useState(0);
-  //const colorSpan = message.length / colorBreakPoint;
-  //let currentColor = 0;
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      //setColorIdx((prevIndex)=>(prevIndex + 1) % colors.length);
       setOffset((prev) => (prev + 1) % colorLength);
     }, 250);
     return () => {
