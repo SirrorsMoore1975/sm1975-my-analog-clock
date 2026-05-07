@@ -22,7 +22,7 @@ const ColorText = ({ message, colorScheme = defaultColorScheme }) => {
     const intervalId = setInterval(() => {
       //setColorIdx((prevIndex)=>(prevIndex + 1) % colors.length);
       setOffset((prev) => (prev + 1) % colorLength);
-    }, 1000);
+    }, 250);
     return () => {
       clearInterval(intervalId);
     };
@@ -39,7 +39,7 @@ const ColorText = ({ message, colorScheme = defaultColorScheme }) => {
               color: colorValues[(offset + idx) % colorLength],
             }}
           >
-            {`${char} `}
+            {`${char}`}
           </span>
         ))}
       </span>

@@ -12,11 +12,14 @@ const HelloWorld = () => {
   const helloworldRef = useRef(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const colorScheme = {
-    'red': 'rgb(255,0,0)',
-    'pink': 'rgb(255,180,172)',
-    'green': 'rgb(102,145,134)',
-    'blue': 'rgb(38,78,112)'
-  }
+    red: "rgb(255,68,34)",
+    orange: "rgb(255,153,51)",
+    yellow: "rgb(204,187,51)",
+    green: "rgb(102,145,134)",
+    indigo: "rgb(24,204,170)",
+    blue: "rgb(38,78,112)",
+    violet: "rgb(68,34,153)",
+  };
 
   useEffect(() => {
     if (helloworldRef.current) {
@@ -32,6 +35,11 @@ const HelloWorld = () => {
 
   return (
     <>
+      <header className="">Mouse Position and Screen Size Testing</header>
+      <div>
+        {" "}
+        Mouse at ({x}, {y}), Screen Size: ({width}, {height})
+      </div>
       <div
         style={{
           position: "fixed",
@@ -51,13 +59,6 @@ const HelloWorld = () => {
           }}
         >
           <ColorText message={`${helloworld}`} colorScheme={colorScheme} />
-          
-          <span>
-            Mouse at ({x}, {y})
-          </span>
-          <span>
-            Screen Size: ({width}, {height})
-          </span>
         </div>
       </div>
     </>
