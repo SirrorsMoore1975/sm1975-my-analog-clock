@@ -36,7 +36,7 @@ const ColorText = ({ message, colorScheme = defaultColorScheme }) => {
             key={idx}
             style={{
               fontSize: 24,
-              color: colorValues[offset + idx] % colorLength,
+              color: colorValues[(offset + idx) % colorLength],
             }}
           >
             {`${char} `}
