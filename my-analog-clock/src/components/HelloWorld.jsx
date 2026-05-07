@@ -50,7 +50,7 @@ const HelloWorld = () => {
             pointerEvents: "none",
           }}
         >
-          <ColorText message={`${helloworld}`} colorScheme={colorScheme} colorBreakPoint={9} />
+          <ColorText message={`${helloworld}`} colorScheme={colorScheme} />
           
           <span>
             Mouse at ({x}, {y})
