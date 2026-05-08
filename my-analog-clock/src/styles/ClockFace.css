@@ -1,0 +1,13 @@
+.clock_header {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.clock_numbers {
+  position: absolute;
+}
+
+.app_provider_header {
+  position: relative;
+}
