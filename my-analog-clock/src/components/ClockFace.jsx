@@ -48,7 +48,7 @@ const ClockFace = () => {
                   key={`0${index}`}
                   style={{
                     pointerEvents: "none",
-                    transform: `translate(${offset.x}px,${offset.y}px) rotate(${angle}deg) translate(0,-100px) rotate(-${angle}deg)`,
+                    transform: `translate(${offset.x}px,${offset.y}px) rotate(${angle}deg) translate(0px,-100px) rotate(-${angle}deg)`,
                     transformOrigin: "center",
                     fontSize: "24px",
                     fontWight: "bold",
