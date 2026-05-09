@@ -40,11 +40,13 @@ const ClockFace = () => {
           ref={clockFaceRef}
           style={{
             position: "absolute",
-            //top: `${offset.y}px`, // y
-            //left: `${offset.x}px`, // x
-            //transform: `translate(-50%,-50%)`,
+            //top: `0px`, // y
+            //left: `0px`, // x
+            // transform: `translate(-50%,-50%)`,
             transform: `translate(${offset.x}px,${offset.y}px)`,
             pointerEvents: "none",
+            maxWidth: `${width - offset.x}vw`,
+            maxHeight: `${height - offset.y}vw`,
           }}
         >
           {clockLetters.map((char, index) => {
