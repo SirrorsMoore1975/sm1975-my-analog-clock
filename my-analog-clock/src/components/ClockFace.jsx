@@ -4,8 +4,6 @@ import useWindowSize from "../utilities/WindowSize.js";
 import "../styles/ClockFace.css";
 
 const clockLetters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-//const clockSize = 50;
-//const clockPivot = 100;
 const clockAngle = 30;
 
 const ClockFace = () => {
@@ -15,9 +13,12 @@ const ClockFace = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   useEffect(() => {
     if (clockFaceRef.current) {
-      const { offsetWidth, offsetHeight } = clockFaceRef.current;
-      const maxX = width - offsetWidth;
-      const maxY = height - offsetHeight;
+      //const { offsetWidth, offsetHeight } = clockFaceRef.current;
+      const rect = clockFaceRef.current.getBoundingClientRect();
+      //const maxX = width - offsetWidth;
+      const maxX = width - rect.width;
+      //const maxY = height - offsetHeight;
+      const maxY = height - rect.height;
       setOffset({
         x: Math.min(Math.max(x, 0), maxX),
         y: Math.min(Math.max(y, 0), maxY),
@@ -28,9 +29,12 @@ const ClockFace = () => {
     <>
       <div
         style={{
-          position: "fixed",
+          position: "relative",
           pointerEvents: "none",
-          zIndex: 9999,
+          cursor: "none",
+          width: "100vm",
+          height: "100vm",
+          // zIndex: 9999,
           top: 0,
           left: 0,
         }}
@@ -40,13 +44,13 @@ const ClockFace = () => {
           ref={clockFaceRef}
           style={{
             position: "absolute",
-            //top: `0px`, // y
-            //left: `0px`, // x
-            // transform: `translate(-50%,-50%)`,
-            transform: `translate(${offset.x}px,${offset.y}px)`,
+            width: `100px`,
+            height: `100px`,
+            //position: "fixed",
+            //transform: `translate(${offset.x}px,${offset.y}px)`,
             pointerEvents: "none",
-            maxWidth: `${width - offset.x}vw`,
-            maxHeight: `${height - offset.y}vw`,
+            top: `${offset.y}px`,
+            left: `${offset.x}px`,
           }}
         >
           {clockLetters.map((char, index) => {
