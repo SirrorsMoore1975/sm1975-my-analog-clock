@@ -35,36 +35,37 @@ const ClockFace = () => {
           left: 0,
         }}
       >
-        <div className="clock_header">
-          <span className="app_provider_header">
-            Clock Provided by: @SirrorsMoore1974
-          </span>
-          <div
-            className="clock_face"
-            ref={clockFaceRef}
-            style={{ top: 0, left: 0 }}
-          >
-            {clockLetters.map((char, index) => {
-              const angle = clockAngle * char;
-              return (
-                <span
-                  className="clock_numbers"
-                  key={`0${index}`}
-                  style={{
-                    pointerEvents: "none",
-                    top: `100px`,
-                    left: `100px`,
-                    transform: `translate(${offset.x}px,${offset.y}px) rotate(${angle}deg) translate(0px,-100px) rotate(-${angle}deg)`,
-                    transformOrigin: "center",
-                    fontSize: 16,
-                    fontWight: "bold",
-                  }}
-                >
-                  {`${char}`}
-                </span>
-              );
-            })}
-          </div>
+        <div
+          className="clock_header"
+          ref={clockFaceRef}
+          style={{
+            position: "absolute",
+            //top: `${offset.y}px`, // y
+            //left: `${offset.x}px`, // x
+            //transform: `translate(-50%,-50%)`,
+            transform: `translate(${offset.x}px,${offset.y}px)`,
+            pointerEvents: "none",
+          }}
+        >
+          {clockLetters.map((char, index) => {
+            const angle = clockAngle * char;
+            return (
+              <span
+                className="clock_numbers"
+                key={`0${index}`}
+                style={{
+                  position: "absolute",
+                  pointerEvents: "none",
+                  transform: `rotate(${angle}deg) translate(0px,-100px) rotate(-${angle}deg)`,
+                  transformOrigin: "center",
+                  fontSize: 24,
+                  fontWight: "bold",
+                }}
+              >
+                {`${char}`}
+              </span>
+            );
+          })}
         </div>
       </div>
     </>
