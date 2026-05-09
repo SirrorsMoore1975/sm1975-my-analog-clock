@@ -35,8 +35,8 @@ const ClockFace = () => {
           width: "100vm",
           height: "100vm",
           // zIndex: 9999,
-          top: 0,
-          left: 0,
+          //top: 0,
+          //left: 0,
         }}
       >
         <div
