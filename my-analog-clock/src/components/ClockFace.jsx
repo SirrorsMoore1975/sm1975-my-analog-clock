@@ -20,7 +20,7 @@ const ClockFace = () => {
       const maxY = height - offsetHeight;
       setOffset({
         x: Math.min(Math.max(x, 0), maxX),
-        y: Math.min(Math.max(y, 50), maxY),
+        y: Math.min(Math.max(y, 0), maxY),
       });
     }
   }, [width, height, x, y]);
@@ -37,9 +37,13 @@ const ClockFace = () => {
       >
         <div className="clock_header">
           <span className="app_provider_header">
-            Clock Provided by: @SirrorsMoore1975
+            Clock Provided by: @SirrorsMoore1974
           </span>
-          <div className="clock_face" ref={clockFaceRef}>
+          <div
+            className="clock_face"
+            ref={clockFaceRef}
+            style={{ top: 0, left: 0 }}
+          >
             {clockLetters.map((char, index) => {
               const angle = clockAngle * char;
               return (
@@ -48,9 +52,11 @@ const ClockFace = () => {
                   key={`0${index}`}
                   style={{
                     pointerEvents: "none",
+                    top: `100px`,
+                    left: `100px`,
                     transform: `translate(${offset.x}px,${offset.y}px) rotate(${angle}deg) translate(0px,-100px) rotate(-${angle}deg)`,
                     transformOrigin: "center",
-                    fontSize: "24px",
+                    fontSize: 16,
                     fontWight: "bold",
                   }}
                 >
