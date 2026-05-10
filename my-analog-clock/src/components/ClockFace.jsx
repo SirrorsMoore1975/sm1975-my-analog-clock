@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
 import "../styles/ClockFace.css";
@@ -14,14 +14,18 @@ const ClockFace = () => {
   useEffect(() => {
     if (clockFaceRef.current) {
       //const { offsetWidth, offsetHeight } = clockFaceRef.current;
+      const margin = 20;
       const rect = clockFaceRef.current.getBoundingClientRect();
       //const maxX = width - offsetWidth;
-      const maxX = width - rect.width;
+      const maxX = width - rect.width - margin;
       //const maxY = height - offsetHeight;
-      const maxY = height - rect.height;
+      const maxY = height - rect.height - margin;
+      const minX = margin;
+      const minY = margin;
+
       setOffset({
-        x: Math.min(Math.max(x, 0), maxX),
-        y: Math.min(Math.max(y, 0), maxY),
+        x: Math.min(Math.max(x, minX), maxX),
+        y: Math.min(Math.max(y, minY), maxY),
       });
     }
   }, [width, height, x, y]);
@@ -29,14 +33,11 @@ const ClockFace = () => {
     <>
       <div
         style={{
-          position: "relative",
+          position: "fixed",
           pointerEvents: "none",
-          cursor: "none",
-          width: "100vm",
-          height: "100vm",
-          // zIndex: 9999,
-          //top: 0,
-          //left: 0,
+          top: 0,
+          left: 0,
+          zIndex: 9999,
         }}
       >
         <div
@@ -44,13 +45,11 @@ const ClockFace = () => {
           ref={clockFaceRef}
           style={{
             position: "absolute",
-            width: `100px`,
-            height: `100px`,
-            //position: "fixed",
-            //transform: `translate(${offset.x}px,${offset.y}px)`,
+            transform: `translate(${offset.x}px,${offset.y}px)`,
             pointerEvents: "none",
-            top: `${offset.y}px`,
-            left: `${offset.x}px`,
+            width: `200px`,
+            height: `200px`,
+            transformOrigin: "center center",
           }}
         >
           {clockLetters.map((char, index) => {
@@ -62,10 +61,14 @@ const ClockFace = () => {
                 style={{
                   position: "absolute",
                   pointerEvents: "none",
-                  transform: `rotate(${angle}deg) translate(0px,-100px) rotate(-${angle}deg)`,
+                  left: "50%",
+                  top: "50%",
+                  transform: `rotate(${angle}deg) translate(0px,-80px) rotate(-${angle}deg)`,
                   transformOrigin: "center",
                   fontSize: 24,
                   fontWight: "bold",
+                  color: "#000",
+                  userSelect: "none",
                 }}
               >
                 {`${char}`}
