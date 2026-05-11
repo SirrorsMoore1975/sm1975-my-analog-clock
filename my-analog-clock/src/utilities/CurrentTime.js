@@ -8,44 +8,67 @@ const useCurrentTime = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const suffix = () => {
-    if (
-      currentTime.day === 1 ||
-      currentTime.day === 21 ||
-      currentTime.day === 31
-    ) {
+  const suffix = (target) => {
+    if (target === 1 || target === 21 || target === 31) {
       return "st";
-    } else if (currentTime().day === 2 || currentTime().day === 22) {
+    } else if (target === 2 || target === 22) {
       return "nd";
-    } else if (currentTime().day === 3 || currentTime.day === 23) {
+    } else if (target === 3 || target === 23) {
       return "rd";
     } else {
       return "th";
     }
   };
 
-  const getCurrentTime = () => {
-    const time = new Date();
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-    const seconds = time.getSeconds();
-    const weekday = time.getDay();
-    const day = time.getDate();
-    const month = time.getMonth();
-    const year = time.getFullYear();
-    return { time, hours, minutes, seconds, weekday, day, month, year };
-  }; // getCurrentTime
-  useEffect(() => {
-    setCurrentTime(() => {
-      return {
-        time: getCurrentTime().time,
-        hh:
-          getCurrentTime().hours < 10
-            ? `0${getCurrentTime().hours}`
-            : `${getCurrentTime().hours}`,
-      };
-    });
-  }, []);
+  const twoDigits = (target) => {
+    if (target < 10) {
+      return `0${target}`;
+    } else {
+      return `${target}`;
+    }
+  };
+
+  const weekNumber = () => {
+    /* Check how to create week number */
+  };
+
+  const Months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const WeekDay = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return {
+    hh: twoDigits(currentTime.getHours()),
+    mm: twoDigits(currentTime.getMinutes()),
+    ss: twoDigits(currentTime.getSeconds()),
+    hours: currentTime.getHours(),
+    minutes: currentTime.getMinutes(),
+    seconds: currentTime.getSeconds(),
+    suffix: `${suffix(currentTime.getDate())}`,
+    months: Months[currentTime.getMonths()],
+    weekday: WeekDay[currentTime.getDay()],
+    year: currentTime.getFullYear(),
+    day: currentTime.getDate(),
+    weeknumber: weekNumber(),
+  };
 }; // CurrentTime
 
 export default useCurrentTime;
