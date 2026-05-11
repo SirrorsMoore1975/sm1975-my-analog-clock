@@ -28,8 +28,25 @@ const useCurrentTime = () => {
     }
   };
 
-  const weekNumber = () => {
+  const weekNumber = (date) => {
     /* Check how to create week number */
+    /* Credit: geeksforgeeks.org/javascript/calculate-current-week-number-in-javascript/ */
+
+    const currentDate = date instanceof Object ? date : new Date();
+    const janFirst = new Date(currentDate.getFullYear(), 0, 1);
+    const daysToNextMonday =
+      janFirst.getDay() === 1 ? 0 : (7 - janFirst.getDay()) % 7;
+    const nextMonday = new Date(
+      currentDate.getFullYear(),
+      0,
+      janFirst.getDate() + daysToNextMonday,
+    );
+
+    return currentDate < nextMonday
+      ? 52
+      : currentDate > nextMonday
+        ? Math.ceil((currentDate - nextMonday) / (24 * 3600 * 1000) / 7)
+        : 1;
   };
 
   const Months = [
@@ -67,7 +84,7 @@ const useCurrentTime = () => {
     weekday: WeekDay[currentTime.getDay()],
     year: currentTime.getFullYear(),
     day: currentTime.getDate(),
-    weeknumber: weekNumber(),
+    weeknumber: weekNumber(currentTime),
   };
 }; // CurrentTime
 
