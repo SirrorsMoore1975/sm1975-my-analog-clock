@@ -85,6 +85,7 @@ const useCurrentTime = () => {
     year: currentTime.getFullYear(),
     day: currentTime.getDate(),
     weeknumber: weekNumber(currentTime),
+    meridiem: currentTime.getHours() > 12 ? "PM" : "AM",
   };
 }; // CurrentTime
 
