@@ -1,6 +1,29 @@
 import { useEffect, useState } from "react";
 
-const CurrentTime = () => {
+const useCurrentTime = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const suffix = () => {
+    if (
+      currentTime.day === 1 ||
+      currentTime.day === 21 ||
+      currentTime.day === 31
+    ) {
+      return "st";
+    } else if (currentTime().day === 2 || currentTime().day === 22) {
+      return "nd";
+    } else if (currentTime().day === 3 || currentTime.day === 23) {
+      return "rd";
+    } else {
+      return "th";
+    }
+  };
+
   const getCurrentTime = () => {
     const time = new Date();
     const hours = time.getHours();
@@ -12,21 +35,7 @@ const CurrentTime = () => {
     const year = time.getFullYear();
     return { time, hours, minutes, seconds, weekday, day, month, year };
   }; // getCurrentTime
-  const [currentTime, setCurrentTime] = useState({});
   useEffect(() => {
-    const suffix = () => {
-      if (
-        getCurrentTime().day === 1 ||
-        getCurrentTime().day === 21 ||
-        getCurrentTime().day === 31
-      )
-        return "st";
-      else if (getCurrentTime().day === 2 || getCurrentTime().day === 22)
-        return "nd";
-      else if (getCurrentTime().day === 3 || getCurrentTime().day === 23)
-        return "rd";
-      else return "th";
-    };
     setCurrentTime(() => {
       return {
         time: getCurrentTime().time,
@@ -39,4 +48,4 @@ const CurrentTime = () => {
   }, []);
 }; // CurrentTime
 
-export default CurrentTime;
+export default useCurrentTime;
