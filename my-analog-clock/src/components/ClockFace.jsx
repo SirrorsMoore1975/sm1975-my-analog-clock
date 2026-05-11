@@ -14,11 +14,11 @@ const ClockFace = () => {
   useEffect(() => {
     if (clockFaceRef.current) {
       //const { offsetWidth, offsetHeight } = clockFaceRef.current;
+      //const maxX = width - offsetWidth;
+      //const maxY = height - offsetHeight;
       const margin = 20;
       const rect = clockFaceRef.current.getBoundingClientRect();
-      //const maxX = width - offsetWidth;
       const maxX = width - rect.width - margin;
-      //const maxY = height - offsetHeight;
       const maxY = height - rect.height - margin;
       const minX = margin;
       const minY = margin;
