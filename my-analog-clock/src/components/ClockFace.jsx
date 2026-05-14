@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
+import useCurrentTime from "../utilities/CurrentTime.js";
 import "../styles/ClockFace.css";
 
 const clockLetters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -11,6 +12,7 @@ const ClockFace = () => {
   const { width, height } = useWindowSize();
   const clockFaceRef = useRef(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const currentTime = useCurrentTime();
   useEffect(() => {
     if (clockFaceRef.current) {
       //const { offsetWidth, offsetHeight } = clockFaceRef.current;

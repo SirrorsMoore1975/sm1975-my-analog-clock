@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 
-const ClockHand = (className, handsObject, degree) => {
+const ClockHand = (className, handsObject, width, height, degree, color) => {
   return (
     <>
       <div
         className={className}
-        styles={{ transform: `rotateZ(${handsObject * degree}deg)` }}
+        styles={{
+          transform: `rotateZ(${handsObject * degree}deg)`,
+          color: `${color}`,
+          width: `${width}`,
+          height: `${height}`,
+        }}
       ></div>
     </>
   );
