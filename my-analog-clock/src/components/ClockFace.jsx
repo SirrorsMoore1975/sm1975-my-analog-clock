@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
 import useCurrentTime from "../utilities/CurrentTime.js";
+import ClockHand from "../components/ClockHand.jsx";
 import "../styles/ClockFace.css";
 
 const clockLetters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -12,7 +13,27 @@ const ClockFace = () => {
   const { width, height } = useWindowSize();
   const clockFaceRef = useRef(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const currentTime = useCurrentTime();
+  const {
+    hh,
+    mm,
+    ss,
+    hours,
+    minutes,
+    seconds,
+    suffix,
+    months,
+    weekday,
+    year,
+    day,
+    weeknumber,
+    meridiem,
+  } = useCurrentTime();
+
+  const hoursAngle = (hours / 60) * 360;
+  const minutesAngle = (minutes / 60) * 360 + (seconds / 60) * 6;
+  const secondsAngle = ((hours % 12) / 12) * 360 + minutes * 60 * 30;
+  const fullTime = `(${weeknumber}) ${weekday} ${day}${suffix} ${months} ${year} ${hh}:${mm}:${ss} ${meridiem}`;
+
   useEffect(() => {
     if (clockFaceRef.current) {
       //const { offsetWidth, offsetHeight } = clockFaceRef.current;
@@ -77,6 +98,8 @@ const ClockFace = () => {
               </span>
             );
           })}
+          <ClockHand />
+          {fullTime}
         </div>
       </div>
     </>

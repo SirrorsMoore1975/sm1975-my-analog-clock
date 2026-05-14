@@ -80,7 +80,7 @@ const useCurrentTime = () => {
     minutes: currentTime.getMinutes(),
     seconds: currentTime.getSeconds(),
     suffix: `${suffix(currentTime.getDate())}`,
-    months: Months[currentTime.getMonths()],
+    months: Months[currentTime.getMonth()],
     weekday: WeekDay[currentTime.getDay()],
     year: currentTime.getFullYear(),
     day: currentTime.getDate(),
