@@ -98,7 +98,7 @@ const ClockFace = () => {
               </span>
             );
           })}
-          <ClockHand />
+          <ClockHand color="black" width="90px" />
           {fullTime}
         </div>
       </div>
