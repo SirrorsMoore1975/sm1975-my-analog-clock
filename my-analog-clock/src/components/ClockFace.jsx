@@ -98,7 +98,12 @@ const ClockFace = () => {
               </span>
             );
           })}
-          <ClockHand color="black" width="90px" />
+          <ClockHand
+            color="black"
+            width="90px"
+            degree={30}
+            handsObject={hoursAngle}
+          />
           {fullTime}
         </div>
       </div>
