@@ -100,9 +100,11 @@ const ClockFace = () => {
           })}
           <ClockHand
             color="black"
-            width="90px"
+            height={10}
             degree={30}
             handsObject={hoursAngle}
+            width={50}
+            PivotOffset={10}
           />
           {fullTime}
         </div>
