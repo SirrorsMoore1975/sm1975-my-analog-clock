@@ -16,7 +16,7 @@ const ClockHand = ({
       <div
         className={className}
         styles={{
-          transform: `translateX(-50%) rotate(${handsObject * degree}deg)`,
+          transform: `translateX(-50%) rotateZ(${handsObject * degree}deg)`,
           backgroundColor: `${color}`,
           width: `${handWidth}px`,
           height: `${handHeight}px`,
@@ -24,7 +24,7 @@ const ClockHand = ({
           left: "50%",
           bottom: `calc(50%, - ${pivotOffset}px)`,
           transformOrigin: `bottom center`,
-          borderRadius: "4px solid #CCC",
+          borderRadius: "5px solid #CCC",
         }}
       >
         {debug ? `handsObject:${handsObject} degree:${degree}` : ""}
