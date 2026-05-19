@@ -102,7 +102,7 @@ const ClockFace = () => {
           })}
           <ClockHand
             color="black"
-            handHeight={10}
+            handHeight={50}
             degree={30}
             handsObject={hoursAngle}
             handWidth={50}
