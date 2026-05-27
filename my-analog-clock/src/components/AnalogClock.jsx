@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
-import useWindowSize from "../utilities/WindoeSize.js";
+import useWindowSize from "../utilities/WindowSize.js";
 import useCurrentTime from "../utilities/CurrentTime.js";
 import ClockFace from "./ClockFace.jsx";
 import ClockHand from "./ClockHand.jsx";
@@ -37,8 +37,10 @@ const AnalogClock = () => {
   return (
     <>
       <div>
+        <ClockFace />
         <ClockHand
-          color="black"
+          className="testing_hand"
+          color="#000"
           handHeight={50}
           degree={30}
           handsObject={hoursAngle}
