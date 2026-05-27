@@ -16,7 +16,6 @@ const ClockHand = ({
   pivotOffset = 0,
   zIndex = 0,
 }) => {
-  const usePagePosition = () => {
     const [pagePosition, setPagePosition] = useState({ left: null, top: null });
     const [offset, setOffset] = useState({ x: null, y: null });
     const { x, y } = useMousePosition();
@@ -36,16 +35,21 @@ const ClockHand = ({
           y: Math.min(Math.max(y, minY), maxY),
         });
       }
-      const updatePagePosition = (ev) => {
+          }, [x, y, width, height]);
+    return pagePosition;
+  };
+const usePagePosition = () => { 
+  useEffect(()=>{
+    const updatePagePosition = (ev) => {
         setPagePosition({ left: ev.pageX, top: ev.pageY });
       };
       window.addEventListener("mousemove", updatePagePosition);
       return () => {
         window.removeEventListener("mousemove", updatePagePosition);
       };
-    }, [x, y, width, height]);
-    return pagePosition;
-  };
+
+  },[])
+}
 
   const { left, top } = usePagePosition();
 
@@ -80,5 +84,5 @@ const ClockHand = ({
     </>
   );
 };
-}
+
 export default ClockHand;
