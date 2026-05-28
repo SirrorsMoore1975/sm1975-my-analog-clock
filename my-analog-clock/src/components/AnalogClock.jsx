@@ -47,8 +47,6 @@ const AnalogClock = () => {
           handWidth={50}
           pivotOffset={10}
           zIndex={1}
-          x={x}
-          y={y}
         />
         {fullTime}
       </div>
