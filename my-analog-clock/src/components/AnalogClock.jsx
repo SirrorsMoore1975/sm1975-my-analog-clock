@@ -41,10 +41,10 @@ const AnalogClock = () => {
         <ClockHand
           className="testing_hand"
           color="#000"
-          handHeight={50}
+          handHeight={18}
           degree={30}
-          handsObject={hoursAngle}
-          handWidth={50}
+          handsObject={secondsAngle}
+          handWidth={200}
           pivotOffset={10}
           zIndex={1}
         />

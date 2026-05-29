@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
 
-const debug = false;
+const debug = true;
 
 const ClockHand = ({
   className,
@@ -55,9 +55,9 @@ const ClockHand = ({
         style={{
           position: "fixed",
           pointEvent: "none",
-          top: 0,
-          buttom: 0,
-          zIndex: `9998`,
+          //top: 0,
+          //buttom: 0,
+          zIndex: `9`,
         }}
       >
         <div
@@ -65,25 +65,38 @@ const ClockHand = ({
           ref={clockHandRef}
           styles={{
             position: "absolute",
-            backgroundColor: `${color}`,
-            width: `${handWidth}px`,
-            height: `${handHeight}px`,
-            // left: "50%",
-            left: `${left + x}px`,
-            top: `${top + y}px`,
-            transformOrigin: "center center",
-            transform: `translate(${offset.x}px,${offset.y}px) translateX(50%) rotate(${handsObject * degree}deg)`,
+
+            transform: `translate(${offset.x}px,${offset.y}px) rotate(${handsObject * degree}deg)`,
             borderRadius: "4px",
             zIndex: `${zIndex}`,
             pointerEvent: "none",
+            transformOrigin: "center center",
             // bottom: `calc(50%, - ${pivotOffset}px)`,
             // transformOrigin: `bottom center`,
             // borderRadius: "5px solid #CCC",
           }}
         >
-          {debug
-            ? `handsObject:${handsObject} degree:${degree} left:${left} top:${top}`
-            : "HANDS====>"}
+          <span
+            style={{
+              position: "absolute",
+              width: `${handWidth}px`,
+              height: `${handHeight}px`,
+              //left: `${left + x}px`,
+              //top: `${top + y}px`,
+              left: `${offset.x}px`,
+              top: `${offset.y}px`,
+              transform: `rotation(${handsObject * degree})deg`,
+              transformOrigin: "center",
+              fontSize: 18,
+              borderRadius: "4px",
+              backgroundColor: `${color}`,
+              color: "#ccc",
+            }}
+          >
+            {debug
+              ? `handsObject:${handsObject} degree:${degree} left:${left} top:${top}`
+              : "HANDS====>"}
+          </span>
         </div>
       </div>
     </>
