@@ -57,25 +57,12 @@ const ClockHand = ({
           pointEvent: "none",
           //top: 0,
           //buttom: 0,
+          transform: `translate(${offset.x}px, ${offset.y}px)`,
+          transformOrigin: "center center",
           zIndex: `9`,
         }}
       >
-        <div
-          className={className}
-          ref={clockHandRef}
-          styles={{
-            position: "absolute",
-
-            transform: `translate(${offset.x}px,${offset.y}px) rotate(${handsObject * degree}deg)`,
-            borderRadius: "4px",
-            zIndex: `${zIndex}`,
-            pointerEvent: "none",
-            transformOrigin: "center center",
-            // bottom: `calc(50%, - ${pivotOffset}px)`,
-            // transformOrigin: `bottom center`,
-            // borderRadius: "5px solid #CCC",
-          }}
-        >
+        <div className={className} ref={clockHandRef}>
           <span
             style={{
               position: "absolute",
@@ -83,8 +70,8 @@ const ClockHand = ({
               height: `${handHeight}px`,
               //left: `${left + x}px`,
               //top: `${top + y}px`,
-              left: `${offset.x}px`,
-              top: `${offset.y}px`,
+              //left: `${offset.x}px`,
+              //top: `${offset.y}px`,
               transform: `rotation(${handsObject * degree})deg`,
               transformOrigin: "center",
               fontSize: 18,
