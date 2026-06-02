@@ -38,7 +38,7 @@ const AnalogClock = () => {
           className="testing_hand"
           color="#000"
           handHeight={18}
-          handsObject={secondAngle}
+          handsDegree={secondAngle}
           handWidth={200}
           zIndex={9997}
         />
