@@ -6,12 +6,10 @@ const debug = true;
 
 const ClockHand = ({
   className,
-  handsObject,
-  handWidth = 0,
-  handHeight = 0,
-  degree,
+  handsDegree,
+  handWidth = 100,
+  handHeight = 18,
   color,
-  pivotOffset = 0,
   zIndex = 0,
 }) => {
   const [pagePosition, setPagePosition] = useState({ left: null, top: null });
@@ -72,7 +70,7 @@ const ClockHand = ({
               //top: `${top + y}px`,
               //left: `${offset.x}px`,
               //top: `${offset.y}px`,
-              transform: `rotation(${handsObject * degree})deg`,
+              transform: `rotation(${handsDegree})deg`,
               transformOrigin: "center",
               fontSize: 18,
               borderRadius: "4px",
@@ -80,9 +78,7 @@ const ClockHand = ({
               color: "#ccc",
             }}
           >
-            {debug
-              ? `handsObject:${handsObject} degree:${degree} left:${left} top:${top}`
-              : "HANDS====>"}
+            {debug ? `handsObject:${handsDegree} left:${left} top:${top}` : "HANDS====>"}
           </span>
         </div>
       </div>
