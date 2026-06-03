@@ -53,32 +53,47 @@ const ClockHand = ({
         style={{
           position: "fixed",
           pointEvent: "none",
-          //top: 0,
-          //buttom: 0,
-          transform: `translate(${offset.x}px, ${offset.y}px)`,
-          transformOrigin: "center center",
-          zIndex: `9`,
+          top: 0,
+          buttom: 0,
+
+          zIndex: 9999,
         }}
       >
         <div className={className} ref={clockHandRef}>
           <span
             style={{
               position: "absolute",
-              width: `${handWidth}px`,
-              height: `${handHeight}px`,
-              //left: `${left + x}px`,
-              //top: `${top + y}px`,
+              transform: `translate(${offset.x}px, ${offset.y}px)`,
+              transformOrigin: "center center",
+              //width: `${handWidth}px`,
+              //height: `${handHeight}px`,
+              width: `200px`,
+              height: `200px`,
               //left: `${offset.x}px`,
               //top: `${offset.y}px`,
-              transform: `rotate(${handsDegree}deg)`,
-              transformOrigin: "center",
+              //transform: `rotate(${handsDegree}deg)`,
+              //transformOrigin: "center",
               fontSize: 18,
-              borderRadius: "4px",
-              backgroundColor: `${color}`,
-              color: "#ccc",
+              //borderRadius: "4px",
+              //backgroundColor: `${color}`,
+              //color: "#ccc",
             }}
           >
-            {debug ? `handsObject:${handsDegree} left:${left} top:${top}` : `${className}`}
+            {debug ? (
+              `handsObject:${handsDegree} left:${left} top:${top}`
+            ) : (
+              <span
+                style={{
+                  position: "absolute",
+                  transform: `translate(0px,-80px) rotate(${handsDegree}deg)`,
+                  transformOrigin: "center",
+                  left: "50%",
+                  top: "50%",
+                }}
+              >
+                {`${className}`}
+              </span>
+            )}
           </span>
         </div>
       </div>
