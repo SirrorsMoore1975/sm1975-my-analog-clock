@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
 
-const debug = true;
+const debug = false;
 
 const ClockHand = ({
   className,
@@ -70,7 +70,7 @@ const ClockHand = ({
               //top: `${top + y}px`,
               //left: `${offset.x}px`,
               //top: `${offset.y}px`,
-              transform: `rotation(${handsDegree})deg`,
+              transform: `rotate(${handsDegree}deg)`,
               transformOrigin: "center",
               fontSize: 18,
               borderRadius: "4px",
@@ -78,7 +78,7 @@ const ClockHand = ({
               color: "#ccc",
             }}
           >
-            {debug ? `handsObject:${handsDegree} left:${left} top:${top}` : "HANDS====>"}
+            {debug ? `handsObject:${handsDegree} left:${left} top:${top}` : `${className}`}
           </span>
         </div>
       </div>
