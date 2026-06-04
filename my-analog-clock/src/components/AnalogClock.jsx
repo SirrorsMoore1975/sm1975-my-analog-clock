@@ -35,12 +35,31 @@ const AnalogClock = () => {
       <div>
         <ClockFace />
         <ClockHand
-          className="testing_hand"
-          color="#000"
-          handHeight={18}
+          className="secondsHand"
+          color="#e83151"
+          handHeight={1}
           handsDegree={secondAngle}
-          handWidth={150}
+          handWidth={140}
           zIndex={9997}
+          borderTop="2px solid #E83151"
+        />
+        <ClockHand
+          className="minutesHand"
+          color="#cccccc"
+          handHeight={1}
+          handsDegree={minutesAngle}
+          handWidth={75}
+          zIndex={9996}
+          borderTop="4px solid #CCC"
+        />
+        <ClockHand
+          className="hoursHand"
+          color="#cccccc"
+          handHeight={1}
+          handsDegree={hourAngle}
+          handWidth={75}
+          zIndex={9995}
+          borderTop="8px solid #CCC"
         />
         {fullTime}
       </div>

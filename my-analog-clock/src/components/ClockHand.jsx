@@ -11,6 +11,7 @@ const ClockHand = ({
   handHeight = 18,
   color,
   zIndex = 0,
+  borderTop = "1px solid #000",
 }) => {
   const [pagePosition, setPagePosition] = useState({ left: null, top: null });
   const [offset, setOffset] = useState({ x: null, y: null });
@@ -73,7 +74,6 @@ const ClockHand = ({
               //top: `${offset.y}px`,
               //transform: `rotate(${handsDegree}deg)`,
               //transformOrigin: "center",
-              fontSize: 18,
               //borderRadius: "4px",
               //backgroundColor: `${color}`,
               //color: "#ccc",
@@ -85,10 +85,16 @@ const ClockHand = ({
               <span
                 style={{
                   position: "absolute",
-                  transform: `translate(0px,-80px) rotate(${handsDegree}deg)`,
-                  transformOrigin: "center",
+                  transform: `translate(0px,-80px) rotate(--${handsDegree}deg)`,
+                  transformOrigin: `left center`,
                   left: "50%",
                   top: "50%",
+                  fontSize: 18,
+                  backgroundColor: `${color}`,
+                  borderRadius: "4px",
+                  borderTop: `${borderTop}`,
+                  width: `${handWidth}px`,
+                  height: `${handHeight}px`,
                 }}
               >
                 {`${className}`}
