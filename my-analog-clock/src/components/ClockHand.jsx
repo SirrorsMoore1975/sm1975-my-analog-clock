@@ -13,7 +13,6 @@ const ClockHand = ({
   zIndex = 0,
   borderTop = "1px solid #000",
 }) => {
-  const [pagePosition, setPagePosition] = useState({ left: null, top: null });
   const [offset, setOffset] = useState({ x: null, y: null });
   const { x, y } = useMousePosition();
   const { width, height } = useWindowSize();
@@ -33,26 +32,12 @@ const ClockHand = ({
       });
     }
   }, [x, y, width, height]);
-  const usePagePosition = () => {
-    useEffect(() => {
-      const updatePagePosition = (ev) => {
-        setPagePosition({ left: ev.pageX, top: ev.pageY });
-      };
-      window.addEventListener("mousemove", updatePagePosition);
-      return () => {
-        window.removeEventListener("mousemove", updatePagePosition);
-      };
-    }, []);
-    return pagePosition;
-  };
-
-  const { left, top } = usePagePosition();
 
   return (
     <>
       <div
         style={{
-          position: "fixed",
+          position: "grid",
           pointEvent: "none",
           top: 0,
           buttom: 0,
@@ -80,13 +65,13 @@ const ClockHand = ({
             }}
           >
             {debug ? (
-              `handsObject:${handsDegree} left:${left} top:${top}`
+              `handsObject:${handsDegree} left:${x} top:${y}`
             ) : (
               <span
                 style={{
                   position: "absolute",
-                  transform: `translate(0px,-80px) rotate(--${handsDegree}deg)`,
-                  transformOrigin: `left center`,
+                  transform: `translate(0px,-80px) rotate(${handsDegree}deg)`,
+                  transformOrigin: `center center`,
                   left: "50%",
                   top: "50%",
                   fontSize: 18,
@@ -95,10 +80,9 @@ const ClockHand = ({
                   borderTop: `${borderTop}`,
                   width: `${handWidth}px`,
                   height: `${handHeight}px`,
+                  userSelect: "none",
                 }}
-              >
-                {`${className}`}
-              </span>
+              ></span>
             )}
           </span>
         </div>
