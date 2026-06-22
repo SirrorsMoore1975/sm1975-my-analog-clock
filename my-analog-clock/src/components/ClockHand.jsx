@@ -37,32 +37,37 @@ const ClockHand = ({
     <>
       <div
         style={{
-          position: "grid",
+          position: "absolute",
           pointEvent: "none",
           top: 0,
           buttom: 0,
-
+          transform: `translate(${offset.x}px, ${offset.y}px)`,
+          transformOrigin: "center center",
+          width: `200px`,
+          height: `200px`,
           zIndex: 9999,
         }}
       >
         <div className={className} ref={clockHandRef}>
           <span
-            style={{
-              position: "absolute",
-              transform: `translate(${offset.x}px, ${offset.y}px)`,
-              transformOrigin: "center center",
-              //width: `${handWidth}px`,
-              //height: `${handHeight}px`,
-              width: `200px`,
-              height: `200px`,
-              //left: `${offset.x}px`,
-              //top: `${offset.y}px`,
-              //transform: `rotate(${handsDegree}deg)`,
-              //transformOrigin: "center",
-              //borderRadius: "4px",
-              //backgroundColor: `${color}`,
-              //color: "#ccc",
-            }}
+          //style={{
+          //position: "absolute",
+          //transform: `translate(${offset.x}px, ${offset.y}px)`,
+          //transformOrigin: "center center",
+          //width: `${handWidth}px`,
+          //height: `${handHeight}px`,
+          //
+          //width: `200px`,
+          //height: `200px`,
+          //
+          //left: `${offset.x}px`,
+          //top: `${offset.y}px`,
+          //transform: `rotate(${handsDegree}deg)`,
+          //transformOrigin: "center",
+          //borderRadius: "4px",
+          //backgroundColor: `${color}`,
+          //color: "#ccc",
+          //}}
           >
             {debug ? (
               `handsObject:${handsDegree} left:${x} top:${y}`
@@ -70,7 +75,7 @@ const ClockHand = ({
               <span
                 style={{
                   position: "absolute",
-                  transform: `translate(0px,-80px) rotate(${handsDegree}deg)`,
+                  transform: `rotate(${handsDegree - 90}deg) translate(0,-20px)`,
                   transformOrigin: `bottom center`,
                   left: "50%",
                   top: "50%",
@@ -80,7 +85,7 @@ const ClockHand = ({
                   backgroundColor: `${color}`,
                   borderRadius: "4px",
                   borderTop: `${borderTop}`,
-                  marginLeft: `-1px`,
+                  marginLeft: `-3px`,
                   width: `${handWidth}px`,
                   height: `${handHeight}px`,
                   userSelect: "none",
