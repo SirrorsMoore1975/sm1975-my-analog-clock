@@ -27,7 +27,8 @@ const AnalogClock = () => {
 
   const secondAngle = (seconds / 60) * 360;
   const minutesAngle = (minutes / 60) * 360 + (seconds / 60) * 6;
-  const hourAngle = ((hours % 12) / 12) * 360 + minutes * 60 * 30;
+  // const hourAngle = ((hours % 12) / 12) * 360 + minutes * 60 * 30;
+  const hourAngle = ((hours % 12) / 12) * 360 + (minutes / 60) * 30;
   const fullTime = `(${weeknumber}) ${weekday} ${day}${suffix} ${months} ${year} ${hh}:${mm}:${ss} ${meridiem}`;
 
   return (
