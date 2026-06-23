@@ -40,7 +40,7 @@ const AnalogClock = () => {
           color="#e83151"
           handHeight={1}
           handsDegree={secondAngle}
-          handWidth={140}
+          handWidth={100}
           zIndex={9997}
           borderTop="2px solid #E83151"
         />
