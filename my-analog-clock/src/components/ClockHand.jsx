@@ -75,7 +75,8 @@ const ClockHand = ({
               <span
                 style={{
                   position: "absolute",
-                  transformOrigin: `bottom center`,
+                  //
+                  transformOrigin: `left`,
                   left: "50%",
                   //top: "50%",
                   bottom: "50%",
@@ -85,8 +86,8 @@ const ClockHand = ({
                   backgroundColor: `${color}`,
                   borderRadius: "4px",
                   borderTop: `${borderTop}`,
-                  //marginLeft: `-3px`,
-                  transform: `rotate(${handsDegree - 90}deg) translate(0px,-20px)`,
+                  // marginLeft: `-3px`,
+                  transform: `rotate(${handsDegree - 90}deg)`,
                   width: `${handWidth}px`,
                   height: `${handHeight}px`,
                   userSelect: "none",
