@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import useMousePosition from "../utilities/MousePosition.js";
 import useWindowSize from "../utilities/WindowSize.js";
+//import useCurrentTime from "../utilities/CurrentTime.js";
+//import ClockHand from "../components/ClockHand.jsx";
 import "../styles/ClockFace.css";
 
 const clockLetters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -50,6 +52,7 @@ const ClockFace = () => {
             width: `200px`,
             height: `200px`,
             transformOrigin: "center center",
+            // transition: "transform 2s easeOut",
           }}
         >
           {clockLetters.map((char, index) => {
@@ -64,6 +67,7 @@ const ClockFace = () => {
                   left: "50%",
                   top: "50%",
                   transform: `rotate(${angle}deg) translate(0px,-80px) rotate(-${angle}deg)`,
+                  // transition: "transform 2s easeOut",
                   transformOrigin: "center",
                   fontSize: 24,
                   fontWight: "bold",
