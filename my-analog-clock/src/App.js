@@ -1,7 +1,7 @@
 import "./App.css";
 
 import HelloWorld from "./components/HelloWorld.jsx";
-import ClockFace from "./components/ClockFace.jsx";
+import AnalogClock from "./components/AnalogClock.jsx";
 
 function App() {
   const DebugMode = false;
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <div>{DebugMode ? <HelloWorld /> : ""}</div>
-      <ClockFace />
+      <AnalogClock />
     </div>
   );
 }
