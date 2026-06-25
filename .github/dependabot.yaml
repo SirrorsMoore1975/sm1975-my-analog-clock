@@ -14,7 +14,27 @@
 
 version: 2
 updates:
+  #1 github actions
   - package-ecosystem: "github-actions" # See documentation for possible values or "pip", "maven", "docker", etc.
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+  #2 React npm actions
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    groups:
+      react-core:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      testing-library:
+        patterns:
+          - "@testing-library/*"
