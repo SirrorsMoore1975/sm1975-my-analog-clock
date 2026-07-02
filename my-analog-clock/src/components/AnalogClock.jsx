@@ -52,11 +52,12 @@ const AnalogClock = () => {
     <>
       <div
         style={{
-          position: "fixed",
+          position: "absolute",
           pointEvents: "none",
           top: 0,
           left: 0,
           zIndex: 9999,
+          //margin: "0 auto",
         }}
       >
         <div
@@ -67,7 +68,7 @@ const AnalogClock = () => {
             pointEvents: "none",
             width: "200px",
             height: "200px",
-            transformOrigin: "center center",
+            //transformOrigin: "center center center center",
           }}
         >
           <ClockFace />

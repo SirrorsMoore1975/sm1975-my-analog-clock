@@ -33,54 +33,32 @@ const ClockFace = () => {
   }, [width, height, x, y]);
   return (
     <>
-      <div
-        style={{
-          position: "fixed",
-          pointerEvents: "none",
-          top: 0,
-          left: 0,
-          zIndex: 9999,
-        }}
-      >
-        <div
-          className="clock_header"
-          ref={clockFaceRef}
-          style={{
-            position: "absolute",
-            transform: `translate(${offset.x}px,${offset.y}px)`,
-            pointerEvents: "none",
-            width: `200px`,
-            height: `200px`,
-            transformOrigin: "center center",
-            // transition: "transform 2s easeOut",
-          }}
-        >
-          {clockLetters.map((char, index) => {
-            const angle = clockAngle * char;
-            return (
-              <span
-                className="clock_numbers"
-                key={`0${index}`}
-                style={{
-                  position: "absolute",
-                  pointerEvents: "none",
-                  left: "50%",
-                  top: "50%",
-                  transform: `rotate(${angle}deg) translate(0px,-80px) rotate(-${angle}deg)`,
-                  // transition: "transform 2s easeOut",
-                  transformOrigin: "center",
-                  fontSize: 24,
-                  fontWight: "bold",
-                  color: "#000",
-                  userSelect: "none",
-                }}
-              >
-                {`${char}`}
-              </span>
-            );
-          })}
-        </div>
-      </div>
+      {clockLetters.map((char, index) => {
+        const angle = clockAngle * char;
+        return (
+          <div
+            className="clock_numbers"
+            key={`0${index}`}
+            style={{
+              position: "absolute",
+              pointerEvents: "none",
+              left: "50%",
+              top: "50%",
+              transform: `rotate(${angle}deg) translate(0px,-80px) rotate(-${angle}deg)`,
+              // transition: "transform 2s easeOut",
+              //transformOrigin: "center",
+              //justifyContent: "center",
+              //alignItems: "center",
+              fontSize: 24,
+              fontWight: "bold",
+              color: "#000",
+              userSelect: "none",
+            }}
+          >
+            {`${char}`}
+          </div>
+        );
+      })}
     </>
   );
 };

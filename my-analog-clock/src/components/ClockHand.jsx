@@ -19,7 +19,7 @@ const ClockHand = ({
   const clockHandRef = useRef(null);
   useEffect(() => {
     if (clockHandRef.current) {
-      const margin = 20;
+      const margin = 0;
       const rect = clockHandRef.current.getBoundingClientRect();
       const maxX = width - rect.width - margin;
       const maxY = height - rect.height - margin;
@@ -38,40 +38,21 @@ const ClockHand = ({
       <div
         style={{
           position: "absolute",
-          pointEvent: "none",
-          transform: `translate(${offset.x}px, ${offset.y}px)`,
-          transformOrigin: "center center",
-          width: `200px`,
-          height: `200px`,
-          zIndex: 9999,
+          transformOrigin: `left center`,
+          left: "50%",
+          top: "50%",
+          //justifyContent: `center`,
+          //alignItems: `center`,
+          backgroundColor: `${color}`,
+          borderRadius: "4px",
+          borderTop: `${borderTop}`,
+          transform: `rotate(${handsDegree - 90}deg)`,
+          width: `${handWidth}px`,
+          height: `${handHeight}px`,
+          userSelect: "none",
+          //margin: "auto",
         }}
-      >
-        <div className={`clockHand ${className}`} ref={clockHandRef}>
-          <span>
-            {debug ? (
-              `handsObject:${handsDegree} left:${x} top:${y}`
-            ) : (
-              <span
-                style={{
-                  position: "absolute",
-                  transformOrigin: `left`,
-                  left: "50%",
-                  bottom: "50%",
-                  justifyContent: `center`,
-                  alignItems: `center`,
-                  backgroundColor: `${color}`,
-                  borderRadius: "4px",
-                  borderTop: `${borderTop}`,
-                  transform: `rotate(${handsDegree - 90}deg)`,
-                  width: `${handWidth}px`,
-                  height: `${handHeight}px`,
-                  userSelect: "none",
-                }}
-              ></span>
-            )}
-          </span>
-        </div>
-      </div>
+      ></div>
     </>
   );
 };
