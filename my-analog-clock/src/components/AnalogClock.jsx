@@ -6,8 +6,6 @@ import useCurrentTime from "../utilities/CurrentTime.js";
 import ClockFace from "./ClockFace.jsx";
 import ClockHand from "./ClockHand.jsx";
 
-import "../styles/ClockFace.css";
-
 const AnalogClock = () => {
   const {
     hh,
@@ -57,45 +55,42 @@ const AnalogClock = () => {
           top: 0,
           left: 0,
           zIndex: 9999,
-          //margin: "0 auto",
         }}
       >
         <div
           ref={clockFaceRef}
           style={{
-            position: "absolute",
             transform: `translate(${offset.x}px,${offset.y}px)`,
-            pointEvents: "none",
             width: "200px",
             height: "200px",
-            //transformOrigin: "center center center center",
+            position: "relative",
           }}
         >
           <ClockFace />
           <ClockHand
             className="secondsHand"
             color="#e83151"
-            handHeight={1}
+            handHeight={78}
             handsDegree={secondAngle}
-            handWidth={90}
+            handWidth={3}
             zIndex={9997}
             borderTop="2px solid #E83151"
           />
           <ClockHand
             className="minutesHand"
             color="#cccccc"
-            handHeight={1}
+            handHeight={75}
             handsDegree={minutesAngle}
-            handWidth={75}
+            handWidth={5}
             zIndex={9996}
             borderTop="4px solid #CCC"
           />
           <ClockHand
             className="hoursHand"
             color="#cccccc"
-            handHeight={1}
+            handHeight={50}
             handsDegree={hourAngle}
-            handWidth={65}
+            handWidth={8}
             zIndex={9995}
             borderTop="8px solid #CCC"
           />
