@@ -5,9 +5,12 @@ const ClockMsgRotate = ({ className, message }) => {
 
   return (
     <>
-      {message.map((char, index, fulllist) => {
-        return <span>{char}</span>;
+      {message.split("").map((char, index, fulllist) => {
+        const len = fulllist.length;
+        return <span>{` ${char} `}</span>;
       })}
     </>
   );
 };
+
+export default ClockMsgRotate;

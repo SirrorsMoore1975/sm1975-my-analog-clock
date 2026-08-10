@@ -5,6 +5,7 @@ import useWindowSize from "../utilities/WindowSize.js";
 import useCurrentTime from "../utilities/CurrentTime.js";
 import ClockFace from "./ClockFace.jsx";
 import ClockHand from "./ClockHand.jsx";
+import ClockMsgRotate from "./ClockMsgRotate.jsx";
 
 const AnalogClock = () => {
   const {
@@ -94,7 +95,10 @@ const AnalogClock = () => {
             zIndex={9995}
             borderTop="8px solid #CCC"
           />
-          {fullTime}
+          <ClockMsgRotate 
+            className="clockMsg"
+            message={fullTime}
+          />
         </div>
       </div>
     </>
