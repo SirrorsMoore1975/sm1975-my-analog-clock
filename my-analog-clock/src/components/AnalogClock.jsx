@@ -5,6 +5,8 @@ import useWindowSize from "../utilities/WindowSize.js";
 import useCurrentTime from "../utilities/CurrentTime.js";
 import ClockFace from "./ClockFace.jsx";
 import ClockHand from "./ClockHand.jsx";
+import ClockMsgRotate from "./ClockMsgRotate.jsx";
+import MarqueeText from "./MarqueeText.jsx";
 
 const AnalogClock = () => {
   const {
@@ -31,7 +33,7 @@ const AnalogClock = () => {
   const secondAngle = (seconds / 60) * 360;
   const minutesAngle = (minutes / 60) * 360 + (seconds / 60) * 6;
   const hourAngle = ((hours % 12) / 12) * 360 + (minutes / 60) * 30;
-  const fullTime = `(${weeknumber}) ${weekday} ${day}${suffix} ${months} ${year} ${hh}:${mm}:${ss} ${meridiem}`;
+  const fullTime = MarqueeText(`(${weeknumber}) ${weekday} ${day}${suffix} ${months} ${year} ${hh}:${mm}:${ss} ${meridiem}`,1000);
 
   useEffect(() => {
     const margin = 20;
@@ -94,7 +96,10 @@ const AnalogClock = () => {
             zIndex={9995}
             borderTop="8px solid #CCC"
           />
-          {fullTime}
+          <ClockMsgRotate 
+            className="clockMsg"
+            message={fullTime}
+          />
         </div>
       </div>
     </>
