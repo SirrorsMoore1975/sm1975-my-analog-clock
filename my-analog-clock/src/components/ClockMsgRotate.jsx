@@ -22,7 +22,7 @@ const ClockMsgRotate = ({ className, message }) => {
             textAlign:"center",
             width:"20px",
             marginLeft:"-10px",
-            marginTop:"-10px",
+            marginTop:"-5px",
             userSelect:"none",
           }}
         >{` ${char}`}</span>;
